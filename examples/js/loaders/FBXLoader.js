@@ -2277,12 +2277,12 @@
 
 										const rawModel = fbxTree.Objects.Model[ modelID.toString() ];
 
-										if ( rawModel === undefined ) {
+										// if ( rawModel === undefined ) {
 
-											console.warn( 'THREE.FBXLoader: Encountered a unused curve.', child );
-											return;
+										// 	console.warn( 'THREE.FBXLoader: Encountered a unused curve.', child );
+										// 	return;
 
-										}
+										// }
 
 										const node = {
 											modelName: rawModel.attrName ? THREE.PropertyBinding.sanitizeNodeName( rawModel.attrName ) : '',
