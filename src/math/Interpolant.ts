@@ -206,10 +206,12 @@ class Interpolant {
 
 		// copies a sample value to the result buffer
 
-		const result = this.resultBuffer,
-			values = this.sampleValues,
-			stride = this.valueSize,
-			offset = index * stride;
+		const result:  undefined | number[] = this.resultBuffer as any,
+			values: number[] = this.sampleValues,
+			stride: number = this.valueSize,
+			offset: number = index * stride;
+
+	
 
 		for ( let i = 0; i !== stride; ++ i ) {
 
