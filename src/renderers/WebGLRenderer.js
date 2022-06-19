@@ -71,7 +71,7 @@ function WebGLRenderer( parameters = {} ) {
 
 	let _alpha;
 
-	if ( _context !== null ) {
+	if ( parameters.context !== undefined ) {
 
 		_alpha = _context.getContextAttributes().alpha;
 
