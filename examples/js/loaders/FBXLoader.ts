@@ -2243,8 +2243,13 @@
 		// note: theoretically a stack can have multiple layers, however in practice there always seems to be one per stack
 
 
-		parseAnimationLayers( curveNodesMap ) {
+		
 
+		parseAnimationLayers( curveNodesMap ) {
+			interface RawModel{
+				attrName: any;
+				id: any;
+			}
 			const rawLayers = fbxTree.Objects.AnimationLayer;
 			const layersMap = new Map();
 
@@ -2275,7 +2280,7 @@
 
 									if ( modelID !== undefined ) {
 
-										const rawModel = fbxTree.Objects.Model[ modelID.toString() ];
+										const rawModel: undefined | RawModel = fbxTree.Objects.Model[ modelID.toString() ];
 
 										// if ( rawModel === undefined ) {
 
