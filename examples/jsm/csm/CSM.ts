@@ -349,8 +349,12 @@ export class CSM {
 
 	dispose() {
 
+		interface shader {
+			uniforms: any;
+		}
+
 		const shaders = this.shaders;
-		shaders.forEach( function ( shader, material ) {
+		shaders.forEach( function ( shader: shader | null, material ) {
 
 			delete material.onBeforeCompile;
 			delete material.defines.USE_CSM;
