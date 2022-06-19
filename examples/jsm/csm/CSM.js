@@ -284,14 +284,12 @@ export class CSM {
 
 		shaders.forEach( function ( shader, material ) {
 
-			if ( shader !== null ) {
 
-				const uniforms = shader.uniforms;
-				this.getExtendedBreaks( uniforms.CSM_cascades.value );
-				uniforms.cameraNear.value = this.camera.near;
-				uniforms.shadowFar.value = far;
+			const uniforms = shader.uniforms;
+			this.getExtendedBreaks( uniforms.CSM_cascades.value );
+			uniforms.cameraNear.value = this.camera.near;
+			uniforms.shadowFar.value = far;
 
-			}
 
 			if ( ! this.fade && 'CSM_FADE' in material.defines ) {
 
@@ -359,13 +357,11 @@ export class CSM {
 			delete material.defines.CSM_CASCADES;
 			delete material.defines.CSM_FADE;
 
-			if ( shader !== null ) {
 
-				delete shader.uniforms.CSM_cascades;
-				delete shader.uniforms.cameraNear;
-				delete shader.uniforms.shadowFar;
+			delete shader.uniforms.CSM_cascades;
+			delete shader.uniforms.cameraNear;
+			delete shader.uniforms.shadowFar;
 
-			}
 
 			material.needsUpdate = true;
 
