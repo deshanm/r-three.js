@@ -676,8 +676,7 @@ class GLTFMaterialsEmissiveStrengthExtension {
 			return Promise.resolve();
 
 		}
-
-		const emissiveStrength = materialDef.extensions[ this.name ].emissiveStrength;
+		const emissiveStrength = materialDef.extensions[this.name].emissiveStrength;
 
 		if ( emissiveStrength !== undefined ) {
 
