@@ -54,7 +54,22 @@ function createCanvasElement() {
 
 }
 
-function WebGLRenderer( parameters = {} ) {
+interface Parameters {
+	canvas?: any;
+	context?: {
+		getContextAttributes: any;
+	};
+	depth?: any;
+	antialias?: any;
+	premultipliedAlpha?: any;
+	powerPreference?: any;
+	preserveDrawingBuffer?: any;
+	stencil?: any;
+	failIfMajorPerformanceCaveat?: any;
+	alpha?:any;
+}
+
+function WebGLRenderer( parameters: Parameters = {} ) {
 
 	this.isWebGLRenderer = true;
 
@@ -71,7 +86,7 @@ function WebGLRenderer( parameters = {} ) {
 
 	let _alpha;
 
-	if ( _context !== null ) {
+	if ( parameters.context !== undefined ) {
 
 		_alpha = _context.getContextAttributes().alpha;
 
