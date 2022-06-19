@@ -347,7 +347,8 @@ function getPaddedArrayBuffer( arrayBuffer, paddingByte = 0 ) {
 
 function getCanvas() {
 
-	if ( typeof document === 'undefined' && typeof OffscreenCanvas !== 'undefined' ) {
+	// if ( typeof document === 'undefined' && typeof OffscreenCanvas !== 'undefined' ) {
+	if ( typeof OffscreenCanvas !== 'undefined' ) {
 
 		return new OffscreenCanvas( 1, 1 );
 
