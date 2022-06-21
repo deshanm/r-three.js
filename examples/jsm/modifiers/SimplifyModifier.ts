@@ -318,7 +318,14 @@ function removeFace( f, faces ) {
 
 }
 
-function collapse( vertices, faces, u, v ) { // u and v are pointers to vertices of an edge
+interface Faces {
+	neighbors: any[],
+	faces: {
+		hasVertex: (v: any)=> boolean
+	}[],
+}
+
+function collapse( vertices, faces, u: Faces, v ) { // u and v are pointers to vertices of an edge
 
 	// Collapse the edge uv by moving vertex u onto v
 
@@ -330,7 +337,7 @@ function collapse( vertices, faces, u, v ) { // u and v are pointers to vertices
 
 	}
 
-	const tmpVertices = [];
+	const tmpVertices: any[] = [];
 
 	for ( let i = 0; i < u.neighbors.length; i ++ ) {
 
@@ -342,7 +349,7 @@ function collapse( vertices, faces, u, v ) { // u and v are pointers to vertices
 	// delete triangles on edge uv:
 	for ( let i = u.faces.length - 1; i >= 0; i -- ) {
 
-		if ( u.faces[ i ] && u.faces[ i ].hasVertex( v ) ) {
+		if (u.faces[ i ].hasVertex( v ) ) {
 
 			removeFace( u.faces[ i ], faces );
 
